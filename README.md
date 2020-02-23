@@ -10,7 +10,7 @@
 
 ## Live
 
-click [here](lustar.surge.sh)
+https://lustar.surge.sh
 
 ## Install
 
