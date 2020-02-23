@@ -22,6 +22,7 @@ export default function Home() {
         });
         setPeople([...people, ...data.results]);
         setNextPage(data.next);
+        setLoadNext(false);
       } catch (e) {
         loadHandler()();
         setError(true);
@@ -29,21 +30,25 @@ export default function Home() {
         loadHandler()();
       }
     })();
-  }, [page]);
+  }, [page]); // eslint-disable-line
 
   const loadHandler = function() {
-    let loaded = false;
-    if (loaded) return;
+    let isLoaded = false;
 
     return function() {
-      loaded = true;
-      setLoader(false);
+      if (!isLoaded) {
+        isLoaded = true;
+        setLoader(false);
+      }
     };
   };
 
-  const handleNextPage = function() {
-    setPage(page + 1);
-    console.log(page);
+  const handleNextPage = function(callback) {
+    if (!loadNext && nextPage) {
+      setLoadNext(true);
+      setPage(page + 1);
+      callback();
+    }
   };
 
   return (

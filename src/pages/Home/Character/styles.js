@@ -1,32 +1,31 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
-  background-color: rgba(255, 255, 255, 0.9);
-  border-bottom: 2px solid transparent;
-  width: 200px;
-  margin: 10px auto;
-  padding: 5px;
-  border-radius: 4px;
-  transition: all 0.4s ease-in-out;
-
-  &:hover {
-    box-shadow: 2px 1px 4px rgba(255, 255, 255, 0.6);
-    cursor: pointer;
+export const Header = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  > svg {
+    margin-right: 10px;
   }
 `;
+export const Spinner = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 40%;
+  > svg {
+    animation: rotate 2s linear infinite;
+  }
 
-export const CharacterImage = styled.div`
-  width: 190px;
-  height: 250px;
-  background-image: url(${props => (props.img ? props.img : "")});
-  background-size: cover;
-  background-position: top center;
-  background-repeat: no-repeat;
-`;
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
 
-export const CharacterName = styled.h4`
-  color: #555;
-  font-size: 14px;
-  font-weight: 300;
-  padding-top: 10px;
+    to {
+      transform: rotate(360deg);
+    }
+  }
 `;

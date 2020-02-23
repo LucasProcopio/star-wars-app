@@ -1,15 +1,17 @@
 import React from "react";
 import { render } from "react-dom";
+import { Router } from "react-router-dom";
 
-import Home from "./pages/Home";
+import { history } from "./services/history";
+import Routes from "./routes";
 
 import GlobalStyle from "./styles/global";
 
 const App = () => (
-  <>
-    <Home />
+  <Router history={history}>
+    <Routes />
     <GlobalStyle />
-  </>
+  </Router>
 );
 
 render(<App />, document.getElementById("root"));
