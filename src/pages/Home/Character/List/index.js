@@ -1,19 +1,29 @@
-import React, { useMemo } from "react";
+import React from "react";
+import PropTypes from "prop-types";
 
 import { Container, CharacterImage, CharacterName } from "./styles";
-import { getCharacterId } from "../../../../lib/people";
 
 const List = ({ character }) => {
-  const id = useMemo(() => getCharacterId(character.url), [character.url]);
-
   return (
-    <Container>
-      <CharacterImage
-        img={`https://starwars-visualguide.com/assets/img/characters/${id}.jpg`}
-      />
+    <Container
+      to={{
+        pathname: "character/details",
+        state: {
+          character: character,
+        },
+      }}
+    >
+      <CharacterImage img={character.image} />
       <CharacterName>{character.name}</CharacterName>
     </Container>
   );
 };
 
 export default List;
+
+List.propTypes = {
+  character: PropTypes.shape({
+    name: PropTypes.string,
+    image: PropTypes.string,
+  }),
+};

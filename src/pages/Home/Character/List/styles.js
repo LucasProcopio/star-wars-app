@@ -1,6 +1,7 @@
 import styled from "styled-components";
-
-export const Container = styled.div`
+import { Link } from "react-router-dom";
+export const Container = styled(Link)`
+  display: block;
   background-color: rgba(255, 255, 255, 0.9);
   border-bottom: 2px solid transparent;
   width: 200px;

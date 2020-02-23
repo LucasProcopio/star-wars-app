@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import api from "../../services/api";
+import { fetch } from "../../services/api";
 
 import { Container } from "./styles";
 import Character from "./Character";
@@ -15,20 +15,19 @@ export default function Home() {
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    (async function() {
-      try {
-        const { data } = await api.get("people", {
-          params: { page },
-        });
-        setPeople([...people, ...data.results]);
-        setNextPage(data.next);
+    (function() {
+      fetch(page, function(response, error) {
+        const { data } = response;
+
+        if (typeof data !== "undefined") {
+          setPeople([...people, ...data.results]);
+          setNextPage(data.next);
+        }
+
         setLoadNext(false);
-      } catch (e) {
+        setError(error);
         loadHandler()();
-        setError(true);
-      } finally {
-        loadHandler()();
-      }
+      });
     })();
   }, [page]); // eslint-disable-line
 
