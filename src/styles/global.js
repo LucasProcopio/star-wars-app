@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import "react-perfect-scrollbar/dist/css/styles.css";
 import bgImage from "../assets/images/background.jpg";
 
 export default createGlobalStyle`
@@ -27,6 +28,7 @@ export default createGlobalStyle`
       background-size: cover;
       background-repeat: no-repeat;
       background-position: top left;
+      background-attachment: fixed;
       opacity: 0.3;
       top: 0;
       left: 0;

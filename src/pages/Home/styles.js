@@ -7,8 +7,8 @@ export const Container = styled.div`
   margin: 0 auto;
   flex-direction: column;
 
-  > h2 {
-    color: #f1f1f1;
+  h2 {
+    color: rgba(255, 255, 255, 0.8);
     text-align: center;
     font-weight: 300;
     padding: 10px 0 10px 0;

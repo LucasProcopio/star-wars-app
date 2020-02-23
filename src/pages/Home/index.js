@@ -3,13 +3,16 @@ import api from "../../services/api";
 
 import { Container } from "./styles";
 import Character from "./Character";
+import Loader from "../../components/Loader";
+import Error from "../../components/Error";
 
 export default function Home() {
   const [people, setPeople] = useState([]);
   const [page, setPage] = useState(1);
   const [nextPage, setNextPage] = useState("");
-  const [loader, setLoader] = useState(false);
+  const [loader, setLoader] = useState(true);
   const [loadNext, setLoadNext] = useState(false);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     (async function() {
@@ -20,20 +23,38 @@ export default function Home() {
         setPeople([...people, ...data.results]);
         setNextPage(data.next);
       } catch (e) {
-        console.log(e);
+        loadHandler()();
+        setError(true);
       } finally {
-        console.log("success");
+        loadHandler()();
       }
     })();
   }, [page]);
 
+  const loadHandler = function() {
+    let loaded = false;
+    if (loaded) return;
+
+    return function() {
+      loaded = true;
+      setLoader(false);
+    };
+  };
+
+  const handleNextPage = function() {
+    setPage(page + 1);
+    console.log(page);
+  };
+
   return (
     <Container>
-      <h2>Characters</h2>
-      {/* TODO: Loader , char information */}
-      {people.map(character => (
-        <Character key={character.created} character={character} />
-      ))}
+      {loader ? (
+        <Loader />
+      ) : error ? (
+        <Error />
+      ) : (
+        <Character characters={people} loadMore={handleNextPage} />
+      )}
     </Container>
   );
 }
