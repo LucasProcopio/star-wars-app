@@ -1,5 +1,8 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+
+import { device } from "../../../../styles/breakpoints";
+
 export const Container = styled(Link)`
   display: block;
   background-color: rgba(255, 255, 255, 0.9);
@@ -14,6 +17,14 @@ export const Container = styled(Link)`
     box-shadow: 2px 1px 4px rgba(255, 255, 255, 0.6);
     cursor: pointer;
   }
+
+  @media ${device.tablet} {
+    width: 300px;
+  }
+
+  @media ${device.laptopL} {
+    width: 500px;
+  }
 `;
 
 export const CharacterImage = styled.div`
@@ -23,6 +34,16 @@ export const CharacterImage = styled.div`
   background-size: cover;
   background-position: top center;
   background-repeat: no-repeat;
+
+  @media ${device.tablet} {
+    width: 290px;
+    height: 350px;
+  }
+
+  @media ${device.laptopL} {
+    width: 490px;
+    height: 550px;
+  }
 `;
 
 export const CharacterName = styled.h4`
@@ -30,4 +51,12 @@ export const CharacterName = styled.h4`
   font-size: 14px;
   font-weight: 300;
   padding-top: 10px;
+
+  @media ${device.tablet} {
+    font-size: 20px;
+  }
+
+  @media ${device.laptopL} {
+    font-size: 34px;
+  }
 `;

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { device } from "../../styles/breakpoints";
 
 export const Spinner = styled.div`
   display: flex;
@@ -27,6 +28,15 @@ export const Spinner = styled.div`
 
     to {
       transform: rotate(360deg);
+    }
+  }
+
+  @media ${device.mobileL} {
+    height: 80%;
+    margin: 20px 0;
+    svg {
+      width: 60px;
+      height: 60px;
     }
   }
 `;

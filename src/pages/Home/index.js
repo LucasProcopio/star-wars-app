@@ -46,7 +46,9 @@ export default function Home() {
     if (!loadNext && nextPage) {
       setLoadNext(true);
       setPage(page + 1);
-      callback();
+      callback(loadNext);
+    } else {
+      callback(loadNext);
     }
   };
 

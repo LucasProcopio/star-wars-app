@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import palpatine from "../../assets/images/palpatine.png";
+import { device } from "../../styles/breakpoints";
 
 export const Container = styled.div`
   display: flex;
@@ -18,6 +19,13 @@ export const Container = styled.div`
     font-size: 16px;
     letter-spacing: 1.2px;
   }
+
+  @media ${device.mobileL} {
+    p {
+      font-size: 24px;
+      word-spacing: 1.2px;
+    }
+  }
 `;
 
 export const ErrorImage = styled.div`
@@ -27,4 +35,10 @@ export const ErrorImage = styled.div`
   background-image: url(${palpatine});
   background-size: contain;
   background-repeat: no-repeat;
+
+  @media ${device.mobileL} {
+    width: 110px;
+    height: 110px;
+    margin: 20px 0;
+  }
 `;

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import loadImg from "../../assets/images/darth_maul.gif";
+import { device } from "../../styles/breakpoints";
 
 export const Container = styled.div`
   display: flex;
@@ -17,6 +18,13 @@ export const Container = styled.div`
     font-size: 16px;
     letter-spacing: 1.2px;
   }
+
+  @media ${device.mobileL} {
+    p {
+      font-size: 24px;
+      word-spacing: 1.2px;
+    }
+  }
 `;
 
 export const LoadImage = styled.div`
@@ -26,4 +34,10 @@ export const LoadImage = styled.div`
   background-image: url(${loadImg});
   background-size: contain;
   background-repeat: no-repeat;
+
+  @media ${device.mobileL} {
+    width: 110px;
+    height: 110px;
+    margin: 20px 0;
+  }
 `;
