@@ -1,4 +1,4 @@
-<h1 align="center">STAR WARS API DEPRECATED - Welcome to Star Wars archives app 👋</h1>
+<h1 align="center">STAR WARS API - Welcome to Star Wars archives app 👋</h1>
 <p>
   <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
   <a href="#" target="_blank">
