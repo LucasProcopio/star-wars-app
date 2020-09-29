@@ -10,7 +10,7 @@
 
 ## Live
 
-https://ludeathstar.surge.sh
+http://ludeathstar.surge.sh
 
 ## Install
 
